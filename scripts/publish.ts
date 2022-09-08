@@ -28,10 +28,10 @@ export default series(
       distPkgFile,
     )
     // 处理 pkg
-    const jsonObj = readJson(distPkgFile) as { module: string, main: string }
+    const jsonObj = readJson(distPkgFile) as { module: string, main: string, types: string }
     jsonObj.module = 'index.esm.js'
     jsonObj.main = 'index.esm.js'
-
+    jsonObj.types = 'types/index'
     await writeJson(distPkgFile, jsonObj, 2)
     
   }),

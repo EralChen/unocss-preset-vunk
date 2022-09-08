@@ -71,10 +71,10 @@ export default series(
     
   }),
 
-  taskWithName('clear types', async () => {
-    await fsp.rm(distTypesDir, {
-      force: true,
-      recursive: true,
-    })
-  }),
+  // taskWithName('clear types', async () => {
+  //   await fsp.rm(distTypesDir, {
+  //     force: true,
+  //     recursive: true,
+  //   })
+  // }),
 )
