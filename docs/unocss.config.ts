@@ -1,5 +1,5 @@
 import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
-import { presetFont, presetGap } from 'unocss-preset-vunk'
+import { presetFont, presetGap, presetFlex } from 'unocss-preset-vunk'
 export default defineConfig({
   presets: [
     presetUno(), 
@@ -8,6 +8,9 @@ export default defineConfig({
 
     presetFont(),
     presetGap(),
+    presetFlex({
+      prefix: 'sk',
+    }),
   ],
   include: [`${__dirname}/**/*`],
   exclude: [`${__dirname}/node_modules/**/*`],

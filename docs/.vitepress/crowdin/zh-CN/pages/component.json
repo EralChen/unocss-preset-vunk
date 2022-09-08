@@ -9,6 +9,10 @@
       {
         "link": "/gap",
         "text": "Gap 间距"
+      },
+      {
+        "link": "/flex",
+        "text": "Flex 布局"
       }
     ]
   }
