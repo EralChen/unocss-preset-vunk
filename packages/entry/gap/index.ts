@@ -1,3 +1,4 @@
+import { NormalObject } from '@vunk/core'
 import type { Preset } from 'unocss'
 
 interface Theme {
@@ -16,11 +17,18 @@ const acronym = {
   mb: 'margin-bottom',
   ma: 'margin',
 
+  mtb: [ 'margin-top',  'margin-bottom' ],
+  mlr: [ 'margin-left',  'margin-right'],
+  
+
   pl: 'padding-left',
   pr: 'padding-right',
   pt: 'padding-top',
   pb: 'padding-bottom',
   pa: 'padding',
+
+  ptb: [ 'padding-top',  'padding-bottom' ],
+  plr: [ 'padding-left',  'padding-right'],
 
 } as const
 
@@ -83,18 +91,28 @@ export function presetGap (config?: {
     ],
     rules: [
       [
-        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa)-([A-Za-z]+)$/,
+        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-([A-Za-z]+)$/,
         ([, a, w]) => {
+          const props = acronym[a]
+          const rule = `var(${resolveVar(w)})`
+          if (Array.isArray(props)) {
+            return props.reduce((a, c) => (a[c] = rule, a) , {} as NormalObject)
+          }
           return { 
-            [acronym[a]]: `var(${resolveVar(w)})`,
+            [acronym[a]]: rule,
           }
         },
       ],
       [
-        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa)-((\d+|-?(?:([1-9]\d*)?\.\d*|0\.\d*[1-9]\d*|0\.0+|0))r?)$/,
+        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-((\d+|-?(?:([1-9]\d*)?\.\d*|0\.\d*[1-9]\d*|0\.0+|0))r?)$/,
         ([, a, d]) => {
+          const props = acronym[a]
+          const rule = `${d}em`
+          if (Array.isArray(props)) {
+            return props.reduce((a, c) => (a[c] = rule, a) , {} as NormalObject)
+          }
           return { 
-            [acronym[a]]: `${d}em`,
+            [props]: rule,
           }
         },
       ],

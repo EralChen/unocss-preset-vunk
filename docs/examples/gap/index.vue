@@ -8,7 +8,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="pa-l">xxx</div>
-  <div class="mt-3">em</div>
+  <div class="mtb-3">tb</div>
   <div class="sub-mt-2r">
     <div>11title</div>
     <div>112321</div>
