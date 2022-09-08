@@ -1,10 +1,12 @@
 import type { Preset } from 'unocss'
+
 interface Theme {
   xs: string,
   s: string,
   m: string,
   l: string,
   xl: string,
+  [s: string]: any
 }
 
 const acronym = {
@@ -22,14 +24,14 @@ const acronym = {
 
 } as const
 
-export function presetGap<T extends Partial<Theme>> (config?: {
+export function presetGap (config?: {
   varPrefix?: string
-  theme?: T
-}): Preset<T>  {
+  theme?: Partial<Theme> 
+}): Preset  {
 
   const _config = {
     varPrefix: 'gap',
-    theme: {} as T,
+    theme: {},
     ...config || {},
   }
 

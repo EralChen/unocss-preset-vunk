@@ -9,8 +9,8 @@ export default series(
   taskWithName('bundleFullEntry', async ()=> {
     rollupFile({
       inputFile: path.resolve(pkgsEntryDir, `./${LIB_ENTRY_FLIENAME}.ts`),
-      outputFile: path.resolve(distDir, './index.esm.js'),
-      format: 'esm',
+      outputFile: path.resolve(distDir, './index.cjs.js'),
+      format: 'cjs',
     })
   }),
   parallel(

@@ -10,6 +10,7 @@ import commonjs from '@rollup/plugin-commonjs'
 
 export function rollupComponents (opts: {
   files: string[],
+  format?: OutputOptions['format'] 
   entry: (file: string) => string,
   outputFile: (file: string) => string,
   external?: (string|RegExp)[]
@@ -38,7 +39,7 @@ export function rollupComponents (opts: {
     const bundle = await rollup(inputConfig)
 
     const outputConfig: OutputOptions = {
-      format: 'esm',
+      format: opts.format || 'esm',
       file: opts.outputFile(file),
       paths: fixPath, // 修改别名到真实路径
     }
@@ -51,7 +52,7 @@ export async function rollupFile (opts: {
   inputFile: string,
   outputFile: string
   external?: (string|RegExp)[]
-  format: 'umd'|'esm'
+  format: OutputOptions['format'] 
 }) {
   const inputConfig = {
     input: opts.inputFile,
@@ -74,7 +75,7 @@ export async function rollupFile (opts: {
     ],
   }
   const outConfig: OutputOptions = {
-    format: 'esm',
+    format: opts.format || 'esm',
     file: opts.outputFile,
     paths: fixPath,
   } 

@@ -6,7 +6,12 @@ export default defineConfig({
     presetAttributify(), 
     presetIcons(),
 
-    presetFont(),
+    presetFont({
+      theme: {
+        xxxs: '2rem',
+        xxxl: '1rem',
+      },
+    }),
     presetGap(),
     presetFlex({
       prefix: 'sk',

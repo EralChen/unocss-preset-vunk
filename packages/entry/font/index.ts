@@ -1,19 +1,21 @@
-import type { Preset } from 'unocss'
+import { Preset } from 'unocss'
+
 interface Theme {
   xs: string,
   s: string,
   m: string,
   l: string,
   xl: string,
+  [s: string]: any
 }
 
-export function presetFont<T extends Partial<Theme>> (config?: {
+export function presetFont (config?: {
   varPrefix?: string
-  theme?: T
-}): Preset<T>  {
+  theme?: Partial<Theme> 
+}): Preset  {
   const _config = {
     varPrefix: 'f',
-    theme: {} as T,
+    theme: {},
     ...config || {},
   }
   function resolveVar (name: string) {

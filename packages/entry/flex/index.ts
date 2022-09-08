@@ -11,6 +11,7 @@ const justifyAcronym = {
   start: 'flex-start',
   between: 'space-between',
   around: 'space-around',
+  evenly: 'space-evenly',
   end: 'flex-end',
 }
 const alignAcronym = {

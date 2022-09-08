@@ -29,15 +29,15 @@ export default series(
     )
     // 处理 pkg
     const jsonObj = readJson(distPkgFile) as { module: string, main: string, types: string }
-    jsonObj.module = 'index.esm.js'
-    jsonObj.main = 'index.esm.js'
+    jsonObj.module = 'index.cjs.js'
+    jsonObj.main = 'index.cjs.js'
     jsonObj.types = 'types/index'
     await writeJson(distPkgFile, jsonObj, 2)
     
   }),
   taskWithName('publish', async () => {
     run(
-      'npm publish --tag alpha --registry https://registry.npmjs.org --access public',
+      'npm publish --registry https://registry.npmjs.org --access public',
       distDir,
     )
   }),
