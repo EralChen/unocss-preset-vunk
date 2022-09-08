@@ -1,10 +1,10 @@
 {
-  "basic": {
-    "text": "basic 基础组件",
+  "usage": {
+    "text": "usage 用法",
     "children": [
       {
-        "link": "/hello",
-        "text": "hello 你好"
+        "link": "/font",
+        "text": "Font 文字"
       }
     ]
   },

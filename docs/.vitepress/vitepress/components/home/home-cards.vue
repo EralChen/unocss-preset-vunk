@@ -23,7 +23,7 @@ const homeLang = computed(() => homeLocale[lang.value])
           <component-svg w="40" m="y-12" />
           <h3>{{ homeLang['6'] }}</h3>
           <p>{{ homeLang['7'] }}</p>
-          <a :href="`/${lang}/component/hello.html`">
+          <a :href="`/${lang}/component/font.html`">
             {{ homeLang['5'] }}
           </a>
         </div>

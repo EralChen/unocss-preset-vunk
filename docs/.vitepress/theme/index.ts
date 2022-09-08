@@ -1,5 +1,4 @@
 import ElementPlus from 'element-plus'
-import Entry from 'unocss-preset-vunk'
 import VPApp, { NotFound, globals } from '../vitepress'
 import { define } from '../utils/types'
 import 'uno.css'
@@ -11,7 +10,6 @@ export default define<Theme>({
   Layout: VPApp,
   enhanceApp: ({ app }) => {
     app.use(ElementPlus)
-    app.use(Entry)
     globals.forEach(([name, Comp]) => {
       app.component(name, Comp)
     })

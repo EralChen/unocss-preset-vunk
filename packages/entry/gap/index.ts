@@ -5,7 +5,6 @@ interface Theme {
   m: string,
   l: string,
   xl: string,
-  
 }
 
 const acronym = {
@@ -38,20 +37,20 @@ export function presetGap<T extends Partial<Theme>> (config?: {
     const prefix = _config.varPrefix
     return `--${prefix ? `${prefix}-` : ''}${name}`
   }
-
+  const theme = {
+    xs: '.8rem',
+    s: '.9rem',
+    m: '1rem',
+    l: '1.1rem',
+    xl: '1.2rem',
+    ..._config.theme,
+  }
   return {
     name: 'unocss-preset-vunk-gap',
-    theme: {
-      xs: '.8rem',
-      s: '.9rem',
-      m: '1rem',
-      l: '1.1rem',
-      xl: '1.2rem',
-      ..._config.theme,
-    }, 
+    theme, 
     preflights: [
       {
-        getCSS ({ theme }) {
+        getCSS (theme) {
           let ruleStr = ''
           for (const key in theme) {
             if (Object.prototype.hasOwnProperty.call(theme, key)) {
@@ -65,12 +64,12 @@ export function presetGap<T extends Partial<Theme>> (config?: {
       },
     ],
     variants: [
-      // hover:
       (matcher) => {
         if (!matcher.startsWith('sub-'))
           return matcher
+        if (!matcher.startsWith('sub:'))
+          return matcher
         return {
-          // slice `hover:` prefix and passed to the next variants and rules
           matcher: matcher.slice(4),
           selector: s => `${s} > * + *`,
         }

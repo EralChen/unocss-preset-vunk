@@ -7,36 +7,33 @@ interface Theme {
   xl: string,
 }
 
-
 export function presetFont<T extends Partial<Theme>> (config?: {
   varPrefix?: string
   theme?: T
 }): Preset<T>  {
-
   const _config = {
     varPrefix: 'f',
     theme: {} as T,
     ...config || {},
   }
-
   function resolveVar (name: string) {
     const prefix = _config.varPrefix
     return `--${prefix ? `${prefix}-` : ''}${name}`
   }
-
+  const theme = {
+    xs: '.8rem',
+    s: '.9rem',
+    m: '1rem',
+    l: '1.1rem',
+    xl: '1.2rem',
+    ..._config.theme,
+  }
   return {
     name: 'unocss-preset-vunk-font',
-    theme: {
-      xs: '.8rem',
-      s: '.9rem',
-      m: '1rem',
-      l: '1.1rem',
-      xl: '1.2rem',
-      ..._config.theme,
-    }, 
+    theme, 
     preflights: [
       {
-        getCSS ({ theme }) {
+        getCSS () {
           let ruleStr = ''
           for (const key in theme) {
             if (Object.prototype.hasOwnProperty.call(theme, key)) {
