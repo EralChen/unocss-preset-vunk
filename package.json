@@ -24,9 +24,8 @@
 	"dependencies": {
 		"@element-plus/utils": "workspace:*",
 		"@vueuse/core": "^8.7.5",
-		"unocss-preset-vunk/components": "workspace:*",
-		"unocss-preset-vunk/shared": "workspace:*",
 		"@vunk/core": "0.0.0-alpha.2",
+		"unocss": "0.33.5",
 		"unocss-preset-vunk": "workspace:*"
 	},
 	"scripts": {

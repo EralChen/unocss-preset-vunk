@@ -1,0 +1,98 @@
+import type { Preset } from 'unocss'
+interface Theme {
+  xs: string,
+  s: string,
+  m: string,
+  l: string,
+  xl: string,
+  
+}
+
+const acronym = {
+  ml: 'margin-left',
+  mr: 'margin-right',
+  mt: 'margin-top',
+  mb: 'margin-bottom',
+  ma: 'margin',
+
+  pl: 'padding-left',
+  pr: 'padding-right',
+  pt: 'padding-top',
+  pb: 'padding-bottom',
+  pa: 'padding',
+
+} as const
+
+export function presetGap<T extends Partial<Theme>> (config?: {
+  varPrefix?: string
+  theme?: T
+}): Preset<T>  {
+
+  const _config = {
+    varPrefix: 'gap',
+    theme: {} as T,
+    ...config || {},
+  }
+
+  function resolveVar (name: string) {
+    const prefix = _config.varPrefix
+    return `--${prefix ? `${prefix}-` : ''}${name}`
+  }
+
+  return {
+    name: 'unocss-preset-vunk-gap',
+    theme: {
+      xs: '.8rem',
+      s: '.9rem',
+      m: '1rem',
+      l: '1.1rem',
+      xl: '1.2rem',
+      ..._config.theme,
+    }, 
+    preflights: [
+      {
+        getCSS ({ theme }) {
+          let ruleStr = ''
+          for (const key in theme) {
+            if (Object.prototype.hasOwnProperty.call(theme, key)) {
+              ruleStr += resolveVar(key) + ':' + theme[key] + ';'
+            }
+          }
+          return `:root{
+            ${ruleStr}
+          }`
+        },
+      },
+    ],
+    variants: [
+      // hover:
+      (matcher) => {
+        if (!matcher.startsWith('sub-'))
+          return matcher
+        return {
+          // slice `hover:` prefix and passed to the next variants and rules
+          matcher: matcher.slice(4),
+          selector: s => `${s} > * + *`,
+        }
+      },
+    ],
+    rules: [
+      [
+        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa)-([A-Za-z]+)$/,
+        ([, a, w]) => {
+          return { 
+            [acronym[a]]: `var(${resolveVar(w)})`,
+          }
+        },
+      ],
+      [
+        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa)-((\d+|-?(?:([1-9]\d*)?\.\d*|0\.\d*[1-9]\d*|0\.0+|0))r?)$/,
+        ([, a, d]) => {
+          return { 
+            [acronym[a]]: `${d}em`,
+          }
+        },
+      ],
+    ],
+  } 
+}
