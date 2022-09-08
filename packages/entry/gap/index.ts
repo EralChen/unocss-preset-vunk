@@ -50,7 +50,7 @@ export function presetGap<T extends Partial<Theme>> (config?: {
     theme, 
     preflights: [
       {
-        getCSS (theme) {
+        getCSS () {
           let ruleStr = ''
           for (const key in theme) {
             if (Object.prototype.hasOwnProperty.call(theme, key)) {
@@ -64,11 +64,15 @@ export function presetGap<T extends Partial<Theme>> (config?: {
       },
     ],
     variants: [
-      (matcher) => {
-        if (!matcher.startsWith('sub-'))
+      matcher => {
+
+        if (!(
+          matcher.startsWith('sub-') 
+          || matcher.startsWith('sub:')
+        )) {
           return matcher
-        if (!matcher.startsWith('sub:'))
-          return matcher
+        }
+         
         return {
           matcher: matcher.slice(4),
           selector: s => `${s} > * + *`,

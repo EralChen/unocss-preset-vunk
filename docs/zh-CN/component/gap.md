@@ -1,9 +1,9 @@
 --- 
-title: Font 字体
+title: Gap 间距
 lang: zh-CN
 ---
 
-# Font 字体
+# Gap 间距
 ```ts
 import { defineConfig } from 'unocss'
 import { presetFont, presetGap } from 'unocss-preset-vunk'
@@ -11,22 +11,19 @@ export default defineConfig({
   presets: [
     // ...
     presetFont({
-  
       // set :root size
       theme: {} // ex. { s: '0.9rem' m: '1rem' l: '1.1rem'  }
 
       // --${varPrefix}-${theme} will be set in :root
-      varPrefix: 'f' // default 
-      
+      varPrefix: 'gap' // default 
     }),
   ]
 })
+
 ```
 ## 基础用法
-
 :::demo
-font/index
+gap/index
 :::
-
-## Font 其他
+## Gap 其他
 

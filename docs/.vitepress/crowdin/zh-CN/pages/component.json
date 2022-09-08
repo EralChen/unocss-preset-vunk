@@ -5,13 +5,11 @@
       {
         "link": "/font",
         "text": "Font 文字"
+      },
+      {
+        "link": "/gap",
+        "text": "Gap 间距"
       }
-    ]
-  },
-  "shared": {
-    "text": "Shared 共享",
-    "children": [
-
     ]
   }
 }
