@@ -1,5 +1,5 @@
 {
-  "name": "@vunk/skzz",
+  "name": "unocss-preset-vunk",
   "version": "0.0.0-alpha.1",
   "description": "",
   "main": "index.ts",

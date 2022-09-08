@@ -24,10 +24,10 @@
 	"dependencies": {
 		"@element-plus/utils": "workspace:*",
 		"@vueuse/core": "^8.7.5",
-		"@vunk-skzz/components": "workspace:*",
-		"@vunk-skzz/shared": "workspace:*",
+		"unocss-preset-vunk/components": "workspace:*",
+		"unocss-preset-vunk/shared": "workspace:*",
 		"@vunk/core": "0.0.0-alpha.2",
-		"@vunk/skzz": "workspace:*"
+		"unocss-preset-vunk": "workspace:*"
 	},
 	"scripts": {
 		"dev": "pnpm run docs:dev",

@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "lib": ["WebWorker"],
     "paths": {
-      "@vunk/skzz": ["../packages/entry"],
+      "unocss-preset-vunk": ["../packages/entry"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
 

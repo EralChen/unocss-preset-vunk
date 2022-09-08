@@ -46,7 +46,7 @@ languages.forEach((lang) => {
 })
 
 export const config: UserConfig = {
-  title: '@vunk/skzz',
+  title: 'unocss-preset-vunk',
   description: 'From dev. To dev',
   lastUpdated: true,
   head,

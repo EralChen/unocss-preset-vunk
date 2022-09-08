@@ -1,7 +1,7 @@
 import installer from './defaults'
-export * from '@vunk-skzz/shared'
+export * from 'unocss-preset-vunk/shared'
 export const install = installer.install
 export default installer
 
-export * from '@vunk-skzz/components/hello'
+export * from 'unocss-preset-vunk/components/hello'
 /* [PLACEHOLDER] components export */

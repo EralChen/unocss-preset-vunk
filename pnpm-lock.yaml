@@ -13,10 +13,10 @@ importers:
       '@types/gulp': ^4.0.9
       '@types/node': ^18.0.4
       '@vueuse/core': ^8.7.5
-      '@vunk-skzz/components': workspace:*
-      '@vunk-skzz/shared': workspace:*
+      'unocss-preset-vunk/components': workspace:*
+      'unocss-preset-vunk/shared': workspace:*
       '@vunk/core': 0.0.0-alpha.2
-      '@vunk/skzz': workspace:*
+      'unocss-preset-vunk': workspace:*
       consola: ^2.15.3
       eslint: ^8.19.0
       eslint-define-config: ^1.5.1
@@ -33,10 +33,10 @@ importers:
     dependencies:
       '@element-plus/utils': link:packages/element-utils
       '@vueuse/core': 8.9.4_vue@3.2.37
-      '@vunk-skzz/components': link:packages/components
-      '@vunk-skzz/shared': link:packages/shared
+      'unocss-preset-vunk/components': link:packages/components
+      'unocss-preset-vunk/shared': link:packages/shared
       '@vunk/core': 0.0.0-alpha.2
-      '@vunk/skzz': link:packages/entry
+      'unocss-preset-vunk': link:packages/entry
     devDependencies:
       '@lib-env/build-constants': link:internal/build-constants
       '@lib-env/build-utils': link:internal/build-utils
@@ -70,7 +70,7 @@ importers:
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/shared': ^3.2.37
       '@vueuse/core': ^8.7.5
-      '@vunk/skzz': workspace:*
+      'unocss-preset-vunk': workspace:*
       axios: ^0.27.2
       chalk: ^4.1.2
       clipboard-copy: ^4.0.1
@@ -102,7 +102,7 @@ importers:
       '@element-plus/icons-vue': 2.0.6_vue@3.2.37
       '@vue/shared': 3.2.37
       '@vueuse/core': 8.9.4_vue@3.2.37
-      '@vunk/skzz': link:../packages/entry
+      'unocss-preset-vunk': link:../packages/entry
       axios: 0.27.2
       clipboard-copy: 4.0.1
       element-plus: 2.2.11_vue@3.2.37

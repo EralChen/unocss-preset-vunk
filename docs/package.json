@@ -21,7 +21,7 @@
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.3",
     "vue": "^3.2.37",
-    "@vunk/skzz": "workspace:*"
+    "unocss-preset-vunk": "workspace:*"
   },
   "devDependencies": {
     "@crowdin/cli": "^3.7.8",

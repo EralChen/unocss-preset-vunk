@@ -1,5 +1,5 @@
 {
-  "name": "@vunk-skzz/components",
+  "name": "unocss-preset-vunk/components",
   "scripts": {
     "build": "gulp -f gulpfile.ts"
   },
