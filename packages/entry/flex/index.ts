@@ -37,16 +37,20 @@ export function presetFlex (config?: {
   )
 
   const reg2a = new RegExp(
+    // vk-flex-row-center
     `^${_config.prefix}-flex-(${direction})-(${justify})$`,
   )
   const reg2b = new RegExp(
+    // vk-flex-row_center
     `^${_config.prefix}-flex-(${direction})_(${align})$`,
   )
   const reg2c = new RegExp(
+    // vk-flex-row-center2
     `^${_config.prefix}-flex-(${direction})-(${justify})2$`,
   )
   
   const reg1 = new RegExp(
+    // vk-flex-row
     `^${_config.prefix}-flex-(${direction})$`,
   )
 
