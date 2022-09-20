@@ -91,7 +91,7 @@ export function presetGap (config?: {
     ],
     rules: [
       [
-        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-([A-Za-z]+)$/,
+        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-(\d?[A-Za-z]+)$/,
         ([, a, w]) => {
           const props = acronym[a]
           const rule = `var(${resolveVar(w)})`

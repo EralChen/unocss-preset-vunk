@@ -50,7 +50,7 @@ export function presetFont (config?: {
     ],
     rules: [
       [
-        /^f-([A-Za-z]+)$/,
+        /^f-(\d?[A-Za-z]+)$/,
         ([, w]) => {
           return { 
             'font-size': `var(${resolveVar(w)})`,

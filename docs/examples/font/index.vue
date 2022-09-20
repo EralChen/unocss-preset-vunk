@@ -10,4 +10,5 @@ export default defineComponent({
   <div class="f-xl">size</div>
   <div class="f-2">em</div>
   <div class="f-2r">rem</div>
+    <div class="f-5xl">5xl</div>
 </template>

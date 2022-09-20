@@ -10,6 +10,7 @@ export default defineConfig({
       theme: {
         xxxs: '2rem',
         xxxl: '1rem',
+        '5xl': '4rem',
       },
     }),
     presetGap(),
