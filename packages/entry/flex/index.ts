@@ -58,6 +58,7 @@ export function presetFlex (config?: {
     name: 'unocss-preset-vunk-flex',
     
     rules: [
+ 
       [
         `${_config.prefix}-flex`, {
           display: 'flex',

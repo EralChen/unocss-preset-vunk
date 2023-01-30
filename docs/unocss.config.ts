@@ -13,7 +13,11 @@ export default defineConfig({
         '5xl': '4rem',
       },
     }),
-    presetGap(),
+    presetGap({
+      theme: {
+        'form-pl': '180px',
+      },
+    }),
     presetFlex({
       prefix: 'sk',
     }),
