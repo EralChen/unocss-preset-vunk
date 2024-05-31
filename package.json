@@ -12,7 +12,7 @@
 		"eslint-define-config": "^1.5.1",
 		"eslint-plugin-vue": "^9.2.0",
 		"fast-glob": "^3.2.11",
-		"gulp": "^4.0.2",
+		"gulp": "^5.0.0",
 		"gulp-concat": "^2.6.1",
 		"mri": "^1.2.0",
 		"sucrase": "^3.24.0",
@@ -22,10 +22,9 @@
 		"vue": "^3.2.37"
 	},
 	"dependencies": {
-		"@element-plus/utils": "workspace:*",
 		"@vueuse/core": "^8.7.5",
-		"@vunk/core": "0.0.0-alpha.2",
-		"unocss": "0.33.5",
+		"@vunk/core": "0.0.0-alpha.120",
+		"unocss": "0.60.3",
 		"unocss-preset-vunk": "workspace:*"
 	},
 	"scripts": {

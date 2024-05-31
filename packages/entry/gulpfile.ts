@@ -12,6 +12,11 @@ export default series(
       outputFile: path.resolve(distDir, './index.cjs.js'),
       format: 'cjs',
     })
+    rollupFile({
+      inputFile: path.resolve(pkgsEntryDir, `./${LIB_ENTRY_FLIENAME}.ts`),
+      outputFile: path.resolve(distDir, './index.esm.js'),
+      format: 'esm',
+    })
   }),
   parallel(
     taskWithName('genEntryTypes', async () => { // 生成入口 .d.ts

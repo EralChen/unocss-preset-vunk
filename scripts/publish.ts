@@ -29,7 +29,7 @@ export default series(
     )
     // 处理 pkg
     const jsonObj = readJson(distPkgFile) as { module: string, main: string, types: string }
-    jsonObj.module = 'index.cjs.js'
+    jsonObj.module = 'index.esm.js'
     jsonObj.main = 'index.cjs.js'
     jsonObj.types = 'types/index'
     await writeJson(distPkgFile, jsonObj, 2)

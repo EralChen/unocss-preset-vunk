@@ -35,11 +35,13 @@ const acronym = {
 export function presetGap (config?: {
   varPrefix?: string
   theme?: Partial<Theme> 
+  prefix?: string
 }): Preset  {
 
   const _config = {
     varPrefix: 'gap',
     theme: {},
+    prefix: '',
     ...config || {},
   }
 
@@ -91,7 +93,9 @@ export function presetGap (config?: {
     ],
     rules: [
       [
-        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-(\d?([A-Za-z]|-)+)$/,
+        // /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-(\d?([A-Za-z]|-)+)$/,
+        new RegExp(`^${_config.prefix}(${Object.keys(acronym).join('|')})-(\d?([A-Za-z]|-)+)$`),
+
         ([, a, w]) => {
           const props = acronym[a]
           const rule = `var(${resolveVar(w)})`
@@ -104,7 +108,8 @@ export function presetGap (config?: {
         },
       ],
       [
-        /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-((\d+|-?(?:([1-9]\d*)?\.\d*|0\.\d*[1-9]\d*|0\.0+|0))r?)$/,
+        // /^(mt|mb|mr|ml|ma|pt|pb|pr|pl|pa|mtb|mlr|ptb|plr)-((\d+|-?(?:([1-9]\d*)?\.\d*|0\.\d*[1-9]\d*|0\.0+|0))r?)$/,
+        new RegExp(`^${_config.prefix}(${Object.keys(acronym).join('|')})-((\\d+|-?(?:([1-9]\\d*)?\\.\\d*|0\\.\\d*[1-9]\\d*|0\\.0+|0))r?)$`),
         ([, a, d]) => {
           const props = acronym[a]
           const rule = `${d}em`
